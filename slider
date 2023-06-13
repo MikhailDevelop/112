@@ -1,0 +1,59 @@
+<div id ='slider'>
+  <div id ='polosa'>
+    <img src="https://99px.ru/sstorage/56/2015/12/mid_225485_1444.jpg" alt="">
+    <img src="https://www.anypics.ru/mini/201210/1419.jpg" alt="">
+    <img src="https://sun9-77.userapi.com/impf/c622528/v622528283/cdf9/VISBqSjaVog.jpg?size=426x266&quality=96&sign=840f75192f7fb935815870308b643cf7&c_uniq_tag=BoZUWtCSVtqvLGUd8oJ_ttGMrQPmMDF-wwqmFlrl4z8&type=album" alt="">
+  </div>
+</div>
+
+<div id="slider_left">left</div>
+<div id="slider_right">right</div>
+
+//css
+<style>
+  #slider {
+    width: 384px;
+    height: 128px;
+    border: 2px solid black;
+    margin: 50px auto;
+    overflow: hidden;
+  }
+  #polosa {
+    background-color: pink;
+    width: 896px;
+    position: relative;
+  }
+  #polosa img {
+    float: left;
+  }
+
+  #polosa::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+</style>
+
+//js
+
+document.getElementById('slider_left').onclick = sliderLeft;
+  var left = 0;
+
+  function sliderLeft() {
+    var polosa = document.getElementById('polosa');
+    left = left - 128;
+    if(left < - 512) {
+       left = 0;
+    }
+    polosa.style.left = left + 'px';
+  }
+  document.getElementById('slider_right').onclick = sliderRight;
+  var right = 0;
+  function sliderRight() {
+    var polosa = document.getElementById('polosa');
+    right = right - 128;
+    if(right < - 512) {
+       right = 0;
+    }
+    polosa.style.right = right + 'px';
+  }
